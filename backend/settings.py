@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-p=!6^@i87s*7m^sa@9^^mucw=3^-mx@c-b0!n#-me83%047_v1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sffront-hanswalgovind2-gmailcom.vercel.app','localhost','govindhanswal.pythonanywhere.com']
 
 
 # Application definition
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -56,6 +57,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://sffront-hanswalgovind2-gmailcom.vercel.app/",
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -84,8 +86,13 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'govindhanswal$stackfusion_db',
+        'USER': 'govindhanswal',
+        'HOST':'govindhanswal.mysql.pythonanywhere-services.com',
+        'PASSWORD': 'Govind@123',
+        'PORT':'3306',
+
     }
 }
 
@@ -133,3 +140,10 @@ STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='govindhanswal97@gmail.com'
+EMAIL_HOST_PASSWORD='zhgabathjbgxxwgy'
+EMAIL_USE_TLS=True
